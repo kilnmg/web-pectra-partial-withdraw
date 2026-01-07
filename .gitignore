@@ -1,0 +1,20 @@
+# dependencies
+/node_modules
+
+# sveltekit
+/.svelte-kit
+/build
+
+# environment variables
+.env
+.env.*
+!.env.example
+
+# misc
+.DS_Store
+*.log
+.vscode
+.idea
+
+# npm
+package-lock.json
