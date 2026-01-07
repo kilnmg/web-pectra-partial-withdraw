@@ -38,7 +38,6 @@
     "clsx": "^2.1.1",
     "ky": "^1.7.2",
     "lucide-svelte": "^0.460.0",
-    "svelte-wagmi": "^0.4.0",
     "tailwind-merge": "^2.5.4",
     "tailwind-variants": "^0.2.1",
     "viem": "^1.21.4"

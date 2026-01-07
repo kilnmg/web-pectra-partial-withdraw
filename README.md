@@ -159,8 +159,7 @@ The application will work on other platforms (Netlify, Cloudflare Pages) but Ver
 - **shadcn-svelte** - Component library
 
 ### Web3 Integration
-- **svelte-wagmi** - Svelte bindings for Wagmi
-- **@wagmi/core** - Ethereum wallet connection
+- **@wagmi/core** - Ethereum wallet connection and management
 - **viem** - TypeScript interface for Ethereum
 
 ### APIs & Services
