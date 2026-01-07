@@ -44,7 +44,7 @@
 				>
 					EIP-7002: Execution Layer Triggerable Withdrawals
 				</a>
-				is an Ethereum Improvement Proposal that enables validators to initiate exits and partial
+				is an Ethereum Improvement Proposal that enables validators to initiate partial
 				withdrawals directly from their execution layer (0x01) withdrawal credentials.
 			</p>
 
@@ -74,7 +74,7 @@
 	</Card>
 
 	<!-- Withdrawal Types -->
-	<div class="grid md:grid-cols-2 gap-4">
+	<div class="grid gap-4">
 		<Card>
 			<div class="p-6 space-y-3">
 				<div class="flex items-start gap-3">
@@ -103,33 +103,6 @@
 			</div>
 		</Card>
 
-		<Card>
-			<div class="p-6 space-y-3">
-				<div class="flex items-start gap-3">
-					<div class="text-2xl">🚪</div>
-					<div class="flex-1">
-						<h3 class="text-xl font-semibold mb-2">Full Withdrawal (Exit)</h3>
-						<p class="text-sm text-muted-foreground mb-3">
-							Permanently exit your validator and withdraw all ETH.
-						</p>
-						<div class="space-y-2 text-sm">
-							<div class="flex items-center gap-2">
-								<span class="text-red-600">⚠</span>
-								<span>Validator stops validating</span>
-							</div>
-							<div class="flex items-center gap-2">
-								<span class="text-red-600">⚠</span>
-								<span>Stops earning rewards</span>
-							</div>
-							<div class="flex items-center gap-2">
-								<span class="text-red-600">⚠</span>
-								<span>Action is irreversible</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</Card>
 	</div>
 
 	<!-- How It Works -->
@@ -284,7 +257,7 @@
 	</Card>
 
 	<!-- Transaction Example -->
-	<Card>
+	<Card id="transaction-example">
 		<div class="p-6 space-y-4">
 			<h3 class="text-xl font-bold">📝 Transaction Example</h3>
 			<p class="text-sm text-muted-foreground">
@@ -412,122 +385,6 @@
 						handles the conversion automatically for you.
 					</div>
 				</div>
-
-				<!-- Full Withdrawal Example -->
-				<div class="border-t pt-6">
-					<h4 class="font-semibold mb-3 text-sm">
-						Example: Full Withdrawal (Validator Exit)
-					</h4>
-					<div class="bg-slate-50 border border-slate-200 rounded-lg p-4 space-y-4">
-						<!-- From -->
-						<div class="space-y-1">
-							<div class="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-								From
-							</div>
-							<code
-								class="block text-xs font-mono bg-background px-3 py-2 rounded border break-all"
-							>
-								0x02D50e49e11Fef1CA36660113b53fc5494DB7c2f
-							</code>
-							<p class="text-xs text-muted-foreground">
-								Your wallet address (must own the validator's withdrawal credentials)
-							</p>
-						</div>
-
-						<!-- To -->
-						<div class="space-y-1">
-							<div class="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-								To
-							</div>
-							<a
-								href={WITHDRAWAL_CONTRACT_ETHERSCAN_URL}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="block text-xs font-mono bg-background px-3 py-2 rounded border break-all hover:bg-muted transition-colors text-primary hover:underline"
-							>
-								{WITHDRAWAL_CONTRACT_ADDRESS}
-							</a>
-							<p class="text-xs text-muted-foreground">
-								EIP-7002 withdrawal system contract
-							</p>
-						</div>
-
-						<!-- Value -->
-						<div class="space-y-1">
-							<div class="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-								Value
-							</div>
-							<code class="block text-xs font-mono bg-background px-3 py-2 rounded border">
-								1 wei
-							</code>
-							<p class="text-xs text-muted-foreground">
-								Minimum fee to submit the withdrawal request
-							</p>
-						</div>
-
-						<!-- Message Data -->
-						<div class="space-y-2">
-							<div class="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-								Transaction Data (Message)
-							</div>
-							<div
-								class="block text-xs font-mono bg-background px-3 py-2 rounded border break-all leading-relaxed"
-							>
-								<span class="text-muted-foreground">0x</span><span
-									class="bg-blue-200 text-blue-900 px-0.5"
-									>a70f6d3541ddbc148f6fa4d3f4a576b42f468f3979cae7ee6d44fe48131fd5c93aaf08c09ceda8a3284a590c756ba624</span
-								><span
-									class="bg-red-200 text-red-900 px-0.5"
-									>0000000000000000</span
-								>
-							</div>
-							<div class="flex items-center gap-4 text-xs">
-								<div class="flex items-center gap-1.5">
-									<div class="w-3 h-3 bg-blue-200 border border-blue-400 rounded"></div>
-									<span class="text-muted-foreground">Validator Pubkey (48 bytes)</span>
-								</div>
-								<div class="flex items-center gap-1.5">
-									<div class="w-3 h-3 bg-red-200 border border-red-400 rounded"></div>
-									<span class="text-muted-foreground">Amount (8 bytes)</span>
-								</div>
-							</div>
-
-							<div class="bg-red-50 border border-red-200 rounded p-3 space-y-2 mt-2">
-								<p class="text-xs font-semibold text-red-900">
-									Message Breakdown:
-								</p>
-								<div class="space-y-2 text-xs font-mono">
-									<div class="bg-background rounded p-2 border border-blue-300">
-										<div class="text-blue-600 font-semibold mb-1">
-											Validator Public Key (48 bytes):
-										</div>
-										<code class="break-all text-foreground">
-											a70f6d3541ddbc148f6fa4d3f4a576b42f468f3979cae7ee6d44fe48131fd5c93aaf08c09ceda8a3284a590c756ba624
-										</code>
-									</div>
-									<div class="bg-background rounded p-2 border border-red-300">
-										<div class="text-red-600 font-semibold mb-1">
-											Amount (8 bytes):
-										</div>
-										<code class="break-all text-foreground">0000000000000000</code>
-										<div class="mt-1 text-muted-foreground">
-											= 0x00 = 0 Gwei = <strong
-												class="text-red-600">Full Exit (Withdraw All ETH)</strong
-											>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="mt-3 text-xs text-muted-foreground bg-red-50 border border-red-200 rounded p-3">
-						<strong class="text-red-900">⚠️ Important:</strong> When the amount is
-						set to zeros (0000000000000000), this signals a <strong>full withdrawal (exit)</strong>. The
-						validator will be placed in the exit queue after a short processing delay and then be permanently exited, validator still generate rewards in the exit queue. The full validator balance will be skimmed to your
-						withdrawal address on the next skimming event (track this on the beacon chain explorer). This action is <strong>irreversible</strong>.
-					</div>
-				</div>
 			</div>
 		</div>
 	</Card>
@@ -542,17 +399,16 @@
 				<ul class="list-disc list-inside mt-2 space-y-1 text-sm">
 					<li>Always verify the contract address before signing</li>
 					<li>Ensure validator has >32 ETH for partial withdrawals</li>
-					<li>Double-check withdrawal amount</li>
-					<li>Full withdrawals are permanent and irreversible</li>
+					<li>Double-check amount sent to the contract here it should be always about 1 wei</li>
 				</ul>
 			</Alert>
 
 			<div class="bg-blue-50 border border-blue-200 rounded p-4">
 				<h4 class="font-semibold mb-2 text-blue-900">
-					💡 Alternative: Explore the Pectrified Simulator
+					💡 Alternative: Explore the Pectrified Simulator for manual partial withdraw with your Ledger
 				</h4>
 				<p class="text-sm text-blue-800 mb-3">
-					Before submitting any withdrawal, test it with the Pectrified withdrawal simulator.
+					Before submitting any transaction, test it and review it, Pectrified withdrawal simulator is a good way to do it out side of this app.
 				</p>
 				<a
 					href={PECTRA_SIMULATOR_URL}

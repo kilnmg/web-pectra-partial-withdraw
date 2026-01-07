@@ -1,13 +1,12 @@
 # Pectra Validator Withdrawal
 
-A production-ready web application that provides a simple, guided interface for Ethereum validators to perform **partial** and **full withdrawals** using the EIP-7002 withdrawal system. Built with SvelteKit and powered by the Kiln Connect API.
+A production-ready web application that provides a simple, guided interface for Ethereum validators to perform **partial withdrawals** using the EIP-7002 withdrawal system. Built with SvelteKit and powered by the Kiln Connect API.
 
 ## Purpose
 
 This application universally allows any Ethereum validator operator to:
 
 - **Withdraw excess balance** (partial withdrawals) while keeping their validator active
-- **Permanently exit validators** (full withdrawals) through an intuitive interface
 - **Monitor transaction status** in real-time with block explorer integration
 - **Manage multiple validators** from a single wallet connection
 
@@ -18,7 +17,6 @@ The interface guides users through the withdrawal process with built-in validati
 ### Core Functionality
 - 🔌 **Multi-Wallet Support**: Connect with MetaMask or Coinbase Wallet
 - 💰 **Partial Withdrawals**: Withdraw excess balance (above 32 ETH) while maintaining validator status
-- 🚪 **Full Withdrawals**: Initiate permanent validator exits with confirmation prompts
 - 🌐 **Multi-Chain Support**: Works on Ethereum Mainnet and Hoodi Testnet
 - 📊 **Validator Dashboard**: View all your validators with real-time balance information
 
@@ -36,7 +34,7 @@ The interface guides users through the withdrawal process with built-in validati
 
 ## How It Works
 
-### Partial Withdrawals
+### How to Withdraw
 
 1. **Connect your wallet** that controls validator withdrawal credentials
 2. **Select a validator** from your dashboard
@@ -44,14 +42,6 @@ The interface guides users through the withdrawal process with built-in validati
 4. **Sign transaction** in your wallet
 5. **Monitor status** as transaction is broadcast and confirmed
 6. **View on block explorer** to track on-chain progress
-
-### Full Withdrawals (Validator Exit)
-
-1. **Select validator** to exit
-2. **Confirm exit** (permanent and irreversible)
-3. **Sign transaction** to submit exit request
-4. **Track confirmation** in real-time
-5. **Wait for exit processing** on the beacon chain (can take days/weeks)
 
 ## Getting Started
 
@@ -245,12 +235,11 @@ npm run lint
 
 ### Withdrawal Mechanics
 - **Partial withdrawals** withdraw excess balance but keep validator active
-- **Full withdrawals** are permanent and irreversible - validator cannot be reactivated
 - Validators must maintain **at least 32 ETH** balance
-- Withdrawal processing time varies based on network conditions and exit queue
+- Withdrawal processing time varies based on network conditions
 
 ### EIP-7002
-This application uses the [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) execution layer triggerable withdrawals system, allowing validators to trigger exits and partial withdrawals directly from the execution layer.
+This application uses the [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) execution layer triggerable withdrawals system, allowing validators to trigger partial withdrawals directly from the execution layer.
 
 **Withdrawal Contract Address**: `0x00000961Ef480Eb55e80D19ad83579A64c007002`
 
